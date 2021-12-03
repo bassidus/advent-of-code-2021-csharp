@@ -1,19 +1,11 @@
 namespace AdventOfCode
 {
-    using System.IO;
-
-    using System;
-
+    using System.Diagnostics;
     public class Day1
     {
-        private List<int>
-            depths =
-                Array
-                    .ConvertAll(File.ReadAllLines("./input/day1.txt"),
-                    int.Parse)
-                    .ToList();
+        private List<int> depths = Array.ConvertAll(File.ReadAllLines("./input/day1.txt"), int.Parse).ToList();
 
-        public void Part1()
+        public int Part1()
         {
             var prev = depths[0];
             var incr = 0;
@@ -24,10 +16,10 @@ namespace AdventOfCode
                 prev = depth;
             }
 
-            Console.WriteLine($"Day 1, Part 1: {incr}");
+            return incr;
         }
 
-        public void Part2()
+        public int Part2()
         {
             var prev = depths[0];
             var incr = 0;
@@ -39,7 +31,7 @@ namespace AdventOfCode
                 prev = window;
             }
 
-            Console.WriteLine($"Day 1, Part 2: {incr}");
+            return incr;
         }
     }
 }
