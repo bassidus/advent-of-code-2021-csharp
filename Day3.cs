@@ -34,10 +34,10 @@ namespace AdventOfCode
             var logs = logbook.ToList();
             foreach (var i in Enumerable.Range(0, logbook[0].Length))
             {
-                var bits = logs.Count(log => log[i] == '1');
-                var commonBit = (2 * bits >= logs.Count) == oxygenOrCO2 ? '1' : '0';
+                var logCount = logs.Count(log => log[i] == '1');
+                var searchFor = (2 * logCount >= logs.Count) == oxygenOrCO2 ? '1' : '0';
 
-                logs = logs.Where(log => log[i] == commonBit).ToList();
+                logs = logs.Where(log => log[i] == searchFor).ToList();
 
                 if (logs.Count == 1)
                 {
